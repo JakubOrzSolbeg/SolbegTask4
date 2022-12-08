@@ -1,11 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
-namespace DataRepository.DbContext;
+namespace DataRepository3.DbContext;
 
-public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
+public class MainDbContext1 : Microsoft.EntityFrameworkCore.DbContext
 {
     private IConfiguration _configuration;
-    public MainDbContext(IConfiguration configuration)
+    public MainDbContext1(IConfiguration configuration)
     {
         _configuration = configuration;
     }

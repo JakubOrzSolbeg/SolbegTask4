@@ -16,7 +16,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\DataRepository\DataRepository.csproj" />
+      <ProjectReference Include="..\DataRepository3\DataRepository3.csproj" />
     </ItemGroup>
+
+    <Import Project="..\Dtos\Dtos.projitems" Label="Shared" />
 
 </Project>

@@ -1,12 +1,12 @@
-using DataRepository.DbContext;
+using DataRepository3.DbContext;
 
-namespace DataRepository.Repositories;
+namespace DataRepository3.Repositories;
 
 public abstract class Repository
 {
-    protected readonly MainDbContext MainDbContext;
+    protected readonly MainDbContext1 MainDbContext;
 
-    public Repository(MainDbContext mainDbContext)
+    public Repository(MainDbContext1 mainDbContext)
     {
         MainDbContext = mainDbContext;
     }

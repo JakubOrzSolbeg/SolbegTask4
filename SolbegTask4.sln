@@ -2,9 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{B20929B9-C6C0-4071-92B7-7830BFDEADFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataRepository", "DataRepository\DataRepository.csproj", "{5E7A5934-06D1-4568-ADAC-7ADFF83ED0F9}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Dtos", "Dtos\Dtos.shproj", "{F4DD78C5-9DF3-42A2-9DBB-58F0270357AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataRepository3", "DataRepository3\DataRepository3.csproj", "{91A24959-A730-4861-974E-4C96CF543478}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,9 +16,9 @@ Global
 		{B20929B9-C6C0-4071-92B7-7830BFDEADFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B20929B9-C6C0-4071-92B7-7830BFDEADFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B20929B9-C6C0-4071-92B7-7830BFDEADFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E7A5934-06D1-4568-ADAC-7ADFF83ED0F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E7A5934-06D1-4568-ADAC-7ADFF83ED0F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E7A5934-06D1-4568-ADAC-7ADFF83ED0F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E7A5934-06D1-4568-ADAC-7ADFF83ED0F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A24959-A730-4861-974E-4C96CF543478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A24959-A730-4861-974E-4C96CF543478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A24959-A730-4861-974E-4C96CF543478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A24959-A730-4861-974E-4C96CF543478}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

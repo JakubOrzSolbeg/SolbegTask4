@@ -1,14 +1,20 @@
+using DataRepository.Repositories.Interfaces;
+using DataRepository3.DbContext;
+using DataRepository3.Repositories.Implementations;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<MainDbContext1>();
+
+builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-// Adding data repository
-DataRepository.Configuration.ConfigureServices(builder.Services);
 
 builder.Services.AddSwaggerGen(c =>
 {

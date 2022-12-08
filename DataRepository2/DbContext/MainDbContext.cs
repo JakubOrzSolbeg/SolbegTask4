@@ -1,4 +1,4 @@
-namespace DbContexts;
+namespace DbContext;
 
 public class MainDbContext : DbContext
 {

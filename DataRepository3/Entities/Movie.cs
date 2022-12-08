@@ -1,13 +1,22 @@
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 namespace DataRepository3.Entities;
 
-public class Movie
+public class Movie : BaseEntity
 {
-    public int Id { get; set; }
     public string Name { get; set; } = null!;
-    public bool IsWatched { get; set; } = false;
+    public bool IsWatched { get; set; }
     public string Author { get; set; } = null!;
-    public bool IsFavourite { get; set; }
-    
-    // For changing positions 
-    public int IdBefore { get; set; } = 0;
 }
+
+public class MovieConfiguration : BaseEntityTypeConfiguration<Movie>
+{
+    public override void Configure(EntityTypeBuilder<Movie> builder)
+    {
+        base.Configure(builder);
+        builder.Property(m => m.IsWatched).HasDefaultValue(false);
+    }
+}
+

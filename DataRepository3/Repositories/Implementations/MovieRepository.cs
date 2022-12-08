@@ -1,32 +1,43 @@
-using DataRepository.Repositories.Interfaces;
-using Requests;
+using DataRepository3.DbContext;
+using DataRepository3.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataRepository3.Repositories.Implementations;
 
-public class MovieRepository : IMovieRepository
+public class MovieRepository<TMovie> : Repository<Entities.Movie>
 {
-    public async Task AddMovie(NewMovie newMovie)
+    public MovieRepository(MainDbContext1 mainDbContext) : base(mainDbContext)
     {
-        throw new NotImplementedException();
+    }
+    
+    public override async Task<List<Entities.Movie>> GetAll()
+    {
+        return await MainDbContext.Movies.OrderByDescending(movie => movie.OrderNumber).ToListAsync();
     }
 
-    public async Task EditMovie(int movieId, NewMovie editedMovie)
+    public override async Task<Movie?> GetById(int id)
     {
-        throw new NotImplementedException();
+        return await MainDbContext.Movies.Where(movie => movie != null && movie.Id.Equals(id)).FirstOrDefaultAsync();
     }
 
-    public async Task MarkAsRead(int movieId)
+    public override async Task<Movie> Add(Movie obj)
     {
-        throw new NotImplementedException();
+        await MainDbContext.Movies.AddAsync(obj);
+        await Commit();
+        return obj;
     }
 
-    public async Task SwapOrder(int idMovieA, int idMovieB)
+    public override async Task<Movie> Save(Movie obj)
     {
-        throw new NotImplementedException();
+        MainDbContext.Movies.Update(obj);
+        await Commit();
+        return obj;
     }
 
-    public async Task RemoveMovie(int movieId)
+    public override async Task<bool> Delete(Movie obj)
     {
-        throw new NotImplementedException();
+        MainDbContext.Movies.Remove(obj);
+        await Commit();
+        return true;
     }
 }

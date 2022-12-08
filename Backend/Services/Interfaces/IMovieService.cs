@@ -1,5 +1,7 @@
 namespace Backend.Services.Interfaces;
 
+using Dtos;
+
 public interface IMovieService
 {
     public Task<List<MovieDto>> GetAllMovies();

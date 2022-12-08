@@ -1,13 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Backend;
+namespace Dtos;
 
 public class NewMovieDto
 {
-    [MinLength(3)]
     [MaxLength(128)]
+    [Required]
     public string Name { get; set; } = null!;
-    [MinLength(3)]
+    [Required]
     [MaxLength(128)]
     public string Author { get; set; } = null!;
 }

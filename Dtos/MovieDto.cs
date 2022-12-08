@@ -1,15 +1,17 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Backend;
+namespace Dtos;
 
 public class MovieDto
 {
+    [Required]
     public int MovieId { get; set; }
-    [MinLength(3)]
+    [Required]
     [MaxLength(128)]
     public string Name { get; set; } = null!;
+    [Required]
     public bool IsWatched { get; set; } = false;
-    [MinLength(3)]
+    [Required]
     [MaxLength(128)]
     public string Author { get; set; } = null!;
 }

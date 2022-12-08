@@ -9,7 +9,10 @@
     <Import_RootNamespace>Dtos</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)MovieDto.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)NewMovieDto.cs" />
+      <Compile Include="$(MSBuildThisFileDirectory)MovieDto.cs" />
+      <Compile Include="$(MSBuildThisFileDirectory)NewMovieDto.cs" />
+    </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)README.md" />
   </ItemGroup>
 </Project>

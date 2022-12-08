@@ -55,6 +55,6 @@ public class MainDbContext1 : Microsoft.EntityFrameworkCore.DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseNpgsql(_configuration.GetConnectionString("MainDb"), 
-            b => b.MigrationsAssembly("Backend"));
+            b => b.MigrationsAssembly(_configuration["MigrationAssembly"]));
     }
 }

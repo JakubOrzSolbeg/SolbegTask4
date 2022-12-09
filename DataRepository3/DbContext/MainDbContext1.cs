@@ -11,8 +11,8 @@ public class MainDbContext1 : Microsoft.EntityFrameworkCore.DbContext
     {
         _configuration = configuration;
     }
-    
-    public DbSet<Movie> Movies { get; set; }
+
+    public DbSet<Movie> Movies { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -7,6 +7,7 @@ using DataRepository3.Repositories;
 using DataRepository3.Repositories.Implementations;
 using Microsoft.OpenApi.Models;
 
+var myCorsPolicyName = "corspolicy";
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,6 +22,10 @@ builder.Services.AddScoped<IMovieService, MovieService2>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddCors(p => p.AddPolicy(myCorsPolicyName, build =>
+{
+    build.WithOrigins("http://localhost:5300").AllowAnyMethod().AllowAnyHeader();
+}));
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -40,7 +45,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+
+app.UseCors(myCorsPolicyName);
 
 app.MapControllerRoute(
     name: "default",

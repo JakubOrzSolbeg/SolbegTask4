@@ -1,5 +1,7 @@
 import React from "react";
 import {GetAllMovies} from "../apiCalls/fetchAllMovies";
+import MovieTable from "./MovieTable";
+import MovieForm2 from "./MovieForm2";
 
 class MovieList extends React.Component{
     constructor(props) {
@@ -10,11 +12,11 @@ class MovieList extends React.Component{
             movies: []
         }
     }
+
     fetchMovieList = () => {
         GetAllMovies()
             .then(response => response.json())
             .then((data) => {
-                console.log(data);
                 this.setState({
                     isLoaded: true,
                     movies: data
@@ -32,8 +34,24 @@ class MovieList extends React.Component{
     }
 
     render() {
-        return (
-            <h2> Here will be dragons </h2>
+        const {error, isLoaded, movies} = this.state;
+        let content;
+
+        if (error){
+            content = <p>Error in fetching data</p>
+        }
+        else if (!isLoaded){
+            content = <p> Loading data </p>
+        }
+        else{
+            content = <MovieTable movies={movies} onStateChanged={this.fetchMovieList}/>
+        }
+
+        return(
+            <div className={"main-content"}>
+                <MovieForm2 onStateChanged={this.fetchMovieList}/>
+                {content}
+            </div>
         )
     }
 }

@@ -1,5 +1,5 @@
-const apiurl = "http://localhost:5213/movies/getall";
+import {apiurl} from "./config";
 
 export function GetAllMovies(){
-    return fetch(apiurl);
+    return fetch(apiurl+"getall");
 }

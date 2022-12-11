@@ -6,6 +6,7 @@ import {IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import markAsRead from "../apiCalls/markAsRead";
+import {Draggable} from "react-beautiful-dnd";
 
 function MovieTableRow(props){
     const movie = props.movie
@@ -44,6 +45,8 @@ function MovieTableRow(props){
     }
 
     let watchedButton;
+    let moveUpButton;
+    let moveDownButton;
     if (movie.isWatched === false){
         watchedButton =
             <IconButton aria-label="delete" size="small" onClick={mark}>
@@ -51,10 +54,11 @@ function MovieTableRow(props){
             </IconButton>
     }
 
-
-
     return(
-        <tr className={"movie " + (movie.isWatched === true? "movie-watched" : "movie-unwatched")}>
+        <Draggable key={movie.movieId} draggableId={movie.movieId.toString()} index={props.index}>
+            {(provided) => (
+                <tr {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}
+                    className={"movie " + (movie.isWatched === true? "movie-watched" : "movie-unwatched")}>
             <td>
                 <ElementMaker
                     value={movieName}
@@ -100,12 +104,17 @@ function MovieTableRow(props){
                 />
             </td>
             <td>
+                {moveUpButton}
+                {moveDownButton}
                 {watchedButton}
+
                 <IconButton aria-label="delete" size="small" onClick={remove}>
                     <DeleteIcon style={{ color: 'red' }}></DeleteIcon>
                 </IconButton>
             </td>
         </tr>
+            )}
+        </Draggable>
     )
 }
 

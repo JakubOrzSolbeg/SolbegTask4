@@ -57,9 +57,12 @@ header{
 .movie-form{
     /*border: #ffc883 2px solid;*/
     /*border-radius: 20px;*/
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 15px;
     box-shadow: rgba(250, 148, 51, 0.5) 0 7px 29px 0;
-    background: rgba(250, 148, 51, 0.2);
-    position: relative;
+    background: rgb(255, 229, 195);
     min-height: 4vh;
     display: flex;
 

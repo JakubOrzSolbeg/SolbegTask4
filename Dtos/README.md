@@ -1,4 +1,4 @@
-## Dtos
+# Dtos
 
 Shared project containing Data Transfer Objects.
 

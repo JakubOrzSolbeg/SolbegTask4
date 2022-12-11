@@ -11,4 +11,5 @@ public interface IMovieService
     public Task<bool> SwapMovies(int movieAId, int movieBId);
     public Task<bool> MarkAsRead(int movieId);
     public Task<bool> RemoveMovie(int movieId);
+    public Task<bool> RearrangeMovies(List<int> orderList);
 }

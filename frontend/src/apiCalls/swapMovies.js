@@ -1,11 +1,16 @@
 import {apiurl} from "./config";
 
-function swapMovies(movieAid, movieBid){
+function swapMovies(movieOrder){
 
     let requestOptions = {
-        method: 'PUT'
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(movieOrder)
     };
-    return fetch(apiurl + "swapmovies?movieAId=" + movieAid+"&movieBId="+movieBid, requestOptions);
+    console.log(JSON.stringify(movieOrder));
+    return fetch(apiurl + "RearangeMovies", requestOptions);
 }
 
 export default swapMovies;

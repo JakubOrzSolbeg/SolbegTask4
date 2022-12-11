@@ -34,6 +34,13 @@ public class MoviesController : ControllerBase
         return movie;
     }
 
+    [HttpPut]
+    public async Task<ActionResult<bool>> RearangeMovies(List<int> newMovieOrder)
+    {
+        var result = await _movieService.RearrangeMovies(newMovieOrder);
+        return (result) ? Ok() : BadRequest("Order list is shorter than movie list");
+    }
+
     [HttpPost]
     public async Task<IActionResult> Add(NewMovieDto newMovie)
     {

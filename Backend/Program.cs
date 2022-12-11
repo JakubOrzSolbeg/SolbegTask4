@@ -13,18 +13,21 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<MainDbContext1>();
-builder.Services.AddScoped<Repository<Movie>, MovieRepository>();
-
-
 builder.Services.AddScoped<IMovieService, MovieService2>();
+
+builder.Services.AddDataRepository();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddCors(p => p.AddPolicy(myCorsPolicyName, build =>
 {
-    build.WithOrigins("http://localhost:5300").AllowAnyMethod().AllowAnyHeader();
+    foreach (var allowedHost in builder.Configuration.GetSection("AllowedCrossOrigin").Get<List<string>>())
+    {
+        Console.WriteLine(allowedHost);
+        build.WithOrigins(allowedHost).AllowAnyMethod().AllowAnyHeader();
+    }
+    
 }));
 
 builder.Services.AddSwaggerGen(c =>

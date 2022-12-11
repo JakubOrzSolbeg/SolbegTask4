@@ -37,8 +37,6 @@ class MovieList extends React.Component{
     handleOrderChange = (source, destination) => {
         console.log("source: "+ source+" destination: "+ destination)
         let items = Array.from(this.state.movies);
-        let sourceMovieId = items[source].movieId;
-        let destinationMovieId = items[destination].movieId;
 
         let [reordered] = items.splice(source, 1)
         items.splice(destination, 0, reordered)
@@ -48,7 +46,7 @@ class MovieList extends React.Component{
         this.setState({movies: items});
 
 
-        swapMovies(sourceMovieId, destinationMovieId).then(r => console.log(r.status))
+        swapMovies(orderList).then(r => console.log(r.status))
     }
 
     render() {

@@ -115,4 +115,25 @@ public class MovieService2 : IMovieService
         await _movieRepository.Delete(movieEntity);
         return true;
     }
+
+    public async Task<bool> RearrangeMovies(List<int> orderList)
+    {
+        var movies = await _movieRepository.GetAll();
+        var moviesDict = movies.ToDictionary(movie => movie.Id);
+        orderList.Reverse();
+
+        int i = 1;
+        if (orderList.Count < movies.Count)
+        {
+            return false;
+        }
+        
+        foreach (var movieId in orderList)
+        {
+            moviesDict[movieId].OrderNumber = i++;
+        }
+
+        await _movieRepository.Commit();
+        return true;
+    }
 }

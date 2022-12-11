@@ -41,3 +41,9 @@ Book/movie watch list with backend made using .net core and frontend with React.
 ### Frontend
 
 <a href="https://ibb.co/F4mqMTG"><img src="https://i.ibb.co/m5bFwWQ/solbeg-task4-schemat4-drawio.png" alt="solbeg-task4-schemat4-drawio" border="0"></a>
+
+#### External libraries:
+
+ - ElementMaker - code snippet used for edit movie details with double click
+ - Mui Icons - icons used in buttons
+ - react-beautiful-dnd - library which allowed reorganising movies priority by simple drag and drop
